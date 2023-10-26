@@ -2,6 +2,49 @@
 //!
 //! A macro `html!` simplifica a criação de código HTML dentro do Rust de forma concisa.
 //! Ela permite a construção de tags HTML e atributos de forma programática.
+//!
+//! # Exemplo
+//!
+//! ```
+//! use html::html;
+//!
+//! let page = html!(
+//!     <html>
+//!         <head>
+//!             <title>{"Minha Página HTML"}</title>
+//!         </head>
+//!         <body>
+//!             <h1>{"Bem-vindo ao Rust HTML Macro!"}</h1>
+//!             <p>{"Este é um exemplo de geração de HTML usando a macro `html!`."}</p>
+//!         </body>
+//!     </html>
+//! );
+//! println!("{}", page);
+//! ```
+//!
+//! Este exemplo cria uma estrutura HTML simples usando a macro `html!` e a imprime.
+//!
+//! # Formato da Macro
+//!
+//! A macro `html!` segue um formato que permite a construção de elementos HTML de maneira concisa:
+//!
+//! - `<$tag $($look_ahead)*>`: Abre uma tag HTML com um nome de tag, seguido por atributos.
+//! - `<$custom-$element $($look_ahead)*>`: Abre uma tag personalizada com um nome personalizado e um elemento, seguido por atributos.
+//! - `$key=$value $($look_ahead)*`: Define um atributo com uma chave e um valor.
+//! - `/> $($look_ahead)*`: Fecha uma tag autossuficiente.
+//! - `> $($look_ahead)*`: Fecha uma tag que pode conter conteúdo.
+//! - `{$value} $($look_ahead)*`: Insere um valor diretamente no HTML.
+//! - `$content $($look_ahead)*`: Insere conteúdo literal no HTML.
+//! - `</$tag $($look_ahead)*>`: Fecha uma tag HTML.
+//! - `</$custom-$element $($look_ahead)*>`: Fecha uma tag personalizada.
+//! - `()` : Finaliza a construção do HTML.
+//!
+//! # Notas
+//!
+//! Esta macro é uma ferramenta poderosa para a geração eficiente de código HTML, mas deve ser usada com cuidado para evitar a injeção de código malicioso.
+//!
+//! Lembre-se de que o Rust é uma linguagem de programação com forte segurança de tipo, e a macro `html!` não faz verificações de segurança contra injeção de código, por isso é importante validar e sanitizar quaisquer dados inseridos no HTML gerado.
+//!
 
 #[macro_export]
 macro_rules! html {
@@ -14,7 +57,7 @@ macro_rules! html {
     };
 
     ($key:ident=$value:tt $($look_ahead:tt)*) => {
-        format!(" {}='{}'{}", stringify!($key), $value, html!($($look_ahead)*))
+        format!(r#" {}="{}"{}"#, stringify!($key), $value, html!($($look_ahead)*))
     };
 
     (/> $($look_ahead:tt)*) => {
@@ -47,7 +90,7 @@ macro_rules! html {
 #[cfg(test)]
 mod tests {
     #[test]
-    fn test_open_tag() {
+    fn open_tag() {
         let document: String = html!(
             <div>
         );
@@ -55,7 +98,7 @@ mod tests {
     }
 
     #[test]
-    fn test_close_tag() {
+    fn close_tag() {
         let document: String = html!(
             </div>
         );
@@ -63,7 +106,7 @@ mod tests {
     }
 
     #[test]
-    fn test_self_close_tag() {
+    fn self_close_tag() {
         let document: String = html!(
             <img />
         );
@@ -71,26 +114,26 @@ mod tests {
     }
 
     #[test]
-    fn test_attributes() {
+    fn attributes() {
         let name: &str = "deMGoncalves";
         let document: String = html!(
             <img alt={name} src="./deMGoncalves.png" />
         );
         assert_eq!(
             document,
-            "<img alt='deMGoncalves' src='./deMGoncalves.png' />"
+            r#"<img alt="deMGoncalves" src="./deMGoncalves.png" />"#
         );
     }
 
     #[test]
-    fn test_content() {
+    fn content() {
         let name: &str = "deMGoncalves";
         let document: String = html!({ format!("I'm {}", name) });
         assert_eq!(document, "I'm deMGoncalves");
     }
 
     #[test]
-    fn test_multiple_elements() {
+    fn multiple_elements() {
         let name: &str = "deMGoncalves";
         let document: String = html!(
             <div class="avatar">
@@ -100,11 +143,11 @@ mod tests {
         );
         assert_eq!(
             document,
-            "<div class='avatar'><img alt='deMGoncalves' src='./deMGoncalves.png' /><strong>I'm deMGoncalves</strong></div>"
+            r#"<div class="avatar"><img alt="deMGoncalves" src="./deMGoncalves.png" /><strong>I'm deMGoncalves</strong></div>"#
         );
     }
 
     #[test]
     #[ignore = "Preciso pensa em um test de web component"]
-    fn test_custom_element_tag() {}
+    fn custom_element_tag() {}
 }
