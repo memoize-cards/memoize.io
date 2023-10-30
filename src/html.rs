@@ -30,11 +30,12 @@
 //!
 //! - `<$tag $($look_ahead)*>`: Abre uma tag HTML com um nome de tag, seguido por atributos.
 //! - `$attribute=$value $($look_ahead)*`: Define um atributo com uma chave e um valor.
-//! - `$data-$attribute=$value $($look_ahead)*`: Define um atributo de dados (data attribute) com uma chave e um valor.
 //! - `/> $($look_ahead)*`: Fecha uma tag autossuficiente.
 //! - `> $($look_ahead)*`: Fecha uma tag que pode conter conteúdo.
 //! - `{$content} $($look_ahead)*`: Insere um valor diretamente no HTML.
 //! - `</$tag $($look_ahead)*>`: Fecha uma tag HTML.
+//! - `$data_attribute- $($look_ahead)*`: Define um atributo personalizado de dados.
+//! - `-$custom_element $($look_ahead)*`: Define um elemento HTML personalizado.
 //! - `()` : Finaliza a construção do HTML.
 //!
 //! # Notas
@@ -54,10 +55,6 @@ macro_rules! html {
         format!(r#" {}="{}"{}"#, stringify!($attribute), $value, html!($($look_ahead)*))
     };
 
-    ($data:ident-$attribute:ident=$value:tt $($look_ahead:tt)*) => {
-        format!(r#" {}-{}="{}"{}"#, stringify!($data), stringify!($attribute), $value, html!($($look_ahead)*))
-    };
-
     (/> $($look_ahead:tt)*) => {
         format!(" />{}", html!($($look_ahead)*))
     };
@@ -74,6 +71,14 @@ macro_rules! html {
         format!("</{}{}", stringify!($tag), html!($($look_ahead)*))
     };
 
+    ($data_attribute:ident- $($look_ahead:tt)*) => {
+        format!("{}-{}", stringify!($data_attribute), html!($($look_ahead)*))
+    };
+
+    (-$custom_element:ident $($look_ahead:tt)*) => {
+        format!("-{}{}", stringify!($custom_element), html!($($look_ahead)*))
+    };
+
     () => { "" }
 }
 
@@ -86,8 +91,10 @@ mod tests {
     }
 
     #[test]
-    #[ignore = "Estudar uma forma de mapear os custom elements"]
-    fn open_custom_tag() {}
+    fn open_custom_tag() {
+        let document: String = html!(<memoize-footer>);
+        assert_eq!(document, "<memoize-footer>");
+    }
 
     #[test]
     fn attributes() {
@@ -128,6 +135,8 @@ mod tests {
     }
 
     #[test]
-    #[ignore = "Estudar uma forma de mapear os custom elements"]
-    fn close_custom_tag() {}
+    fn close_custom_tag() {
+        let document: String = html!(</memoize-footer>);
+        assert_eq!(document, "</memoize-footer>");
+    }
 }
