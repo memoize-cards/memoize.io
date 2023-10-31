@@ -30,11 +30,11 @@
 //!
 //! - `<$tag $($look_ahead)*>`: Abre uma tag HTML com um nome de tag, seguido por atributos.
 //! - `$attribute=$value $($look_ahead)*`: Define um atributo com uma chave e um valor.
+//! - `data-$attribute- $($look_ahead)*`: Define um data atributo personalizado de dados.
 //! - `/> $($look_ahead)*`: Fecha uma tag autossuficiente.
 //! - `> $($look_ahead)*`: Fecha uma tag que pode conter conteúdo.
 //! - `{$content} $($look_ahead)*`: Insere um valor diretamente no HTML.
 //! - `</$tag $($look_ahead)*>`: Fecha uma tag HTML.
-//! - `$data_attribute- $($look_ahead)*`: Define um atributo personalizado de dados.
 //! - `-$custom_element $($look_ahead)*`: Define um elemento HTML personalizado.
 //! - `()` : Finaliza a construção do HTML.
 //!
@@ -55,8 +55,12 @@ macro_rules! html {
         format!(r#" {}="{}"{}"#, stringify!($attribute), $value, html!($($look_ahead)*))
     };
 
+    (data-$attribute:ident=$value:tt $($look_ahead:tt)*) => {
+        format!(r#" data-{}="{}"{}"#, stringify!($attribute), $value, html!($($look_ahead)*))
+    };
+
     (/> $($look_ahead:tt)*) => {
-        format!(" />{}", html!($($look_ahead)*))
+        format!("/>{}", html!($($look_ahead)*))
     };
 
     (> $($look_ahead:tt)*) => {
@@ -69,10 +73,6 @@ macro_rules! html {
 
     (</$tag:ident $($look_ahead:tt)*) => {
         format!("</{}{}", stringify!($tag), html!($($look_ahead)*))
-    };
-
-    ($data_attribute:ident- $($look_ahead:tt)*) => {
-        format!("{}-{}", stringify!($data_attribute), html!($($look_ahead)*))
     };
 
     (-$custom_element:ident $($look_ahead:tt)*) => {
@@ -106,13 +106,13 @@ mod tests {
     #[test]
     fn data_attributes() {
         let document: String = html!(<img data-src="./deMGoncalves.png" />);
-        assert_eq!(document, r#"<img data-src="./deMGoncalves.png" />"#);
+        assert_eq!(document, r#"<img data-src="./deMGoncalves.png"/>"#);
     }
 
     #[test]
     fn self_closing_tag() {
         let document: String = html!(/>);
-        assert_eq!(document, " />");
+        assert_eq!(document, "/>");
     }
 
     #[test]
