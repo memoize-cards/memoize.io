@@ -1,0 +1,9 @@
+name = "memoize-io"
+main = "build/worker/shim.mjs"
+compatibility_date = "2023-11-08"
+
+[build]
+command = "cargo install -q worker-build && worker-build --release"
+
+[site]
+bucket = "static"
