@@ -1,10 +1,10 @@
 [package]
-name = "memoize"
 description = "Aprenda, Memorize, Domine!"
-repository = "https://github.com/memoize-cards/memoize.io"
-license = "CC BY-NC 4.0"
-version = "0.0.1"
 edition = "2021"
+license = "CC BY-NC 4.0"
+name = "memoize"
+repository = "https://github.com/memoize-cards/memoize.io"
+version = "0.0.1"
 
 # https://github.com/rustwasm/wasm-pack/issues/1247
 [package.metadata.wasm-pack.profile.release]
@@ -17,6 +17,6 @@ crate-type = ["cdylib"]
 worker = "0.0.15"
 
 [profile.release]
+codegen-units = 1
 lto = true
 strip = true
-codegen-units = 1
