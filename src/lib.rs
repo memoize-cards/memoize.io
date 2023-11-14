@@ -5,15 +5,6 @@ mod html;
 
 #[event(fetch)]
 async fn main(_req: Request, _env: Env, _ctx: Context) -> Result<Response> {
-    css::css(
-        r#"
-        * {
-            margin: 0;
-            padding: 0;
-        }
-    "#,
-    );
-
     let body: String = html!(
         <html>
             <head>
@@ -30,4 +21,16 @@ async fn main(_req: Request, _env: Env, _ctx: Context) -> Result<Response> {
     );
 
     Response::from_html(body)
+}
+
+#[event(start)]
+fn start() {
+    css::css(
+        r#"
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    "#,
+    );
 }
