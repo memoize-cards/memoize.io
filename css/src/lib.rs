@@ -127,7 +127,8 @@ pub fn style() -> String {
 
 #[cfg(test)]
 mod tests {
-    use crate::css::*;
+    use crate::css;
+    use crate::style;
 
     #[test]
     fn text_content() {
@@ -141,11 +142,6 @@ mod tests {
 
     #[test]
     fn html_style_element() {
-        css(r#"
-            * {
-                all: unset;
-            }
-        "#);
         let tag: String = style();
         assert_eq!(tag, "<style>* { all: unset; }</style>")
     }
