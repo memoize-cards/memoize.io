@@ -15,3 +15,8 @@ Cargo.lock
 
 # Added by cargo
 /target
+
+# Cloudflare Worker
+.wrangler/
+build/
+node_modules/
