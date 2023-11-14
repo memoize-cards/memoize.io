@@ -1,7 +1,6 @@
+use css::*;
+use html::*;
 use worker::*;
-
-mod css;
-mod html;
 
 #[event(fetch)]
 async fn main(_req: Request, _env: Env, _ctx: Context) -> Result<Response> {
@@ -25,12 +24,10 @@ async fn main(_req: Request, _env: Env, _ctx: Context) -> Result<Response> {
 
 #[event(start)]
 fn start() {
-    css::css(
-        r#"
+    css(r#"
         * {
             margin: 0;
             padding: 0;
         }
-    "#,
-    );
+    "#);
 }
