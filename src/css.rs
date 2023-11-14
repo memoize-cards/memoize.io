@@ -92,7 +92,7 @@ static mut CONTENT: String = String::new();
 /// Uma string contendo o conteúdo CSS minificado.
 pub fn css(content: &str) -> String {
     let content: String = content
-        .replace("\n", " ")
+        .replace('\n', " ")
         .split_whitespace()
         .collect::<Vec<&str>>()
         .join(" ");
