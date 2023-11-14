@@ -141,6 +141,11 @@ mod tests {
 
     #[test]
     fn html_style_element() {
+        css(r#"
+            * {
+                all: unset;
+            }
+        "#);
         let tag: String = style();
         assert_eq!(tag, "<style>* { all: unset; }</style>")
     }
