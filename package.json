@@ -1,13 +1,14 @@
 {
+	"devDependencies": {
+		"wrangler": "^2.13.0"
+	},
+
 	"name": "memoize.io",
-	"version": "0.0.1",
+  "packageManager": "yarn@4.0.1",
 	"private": true,
 	"scripts": {
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev"
 	},
-	"devDependencies": {
-		"wrangler": "^2.13.0"
-	},
-  "packageManager": "yarn@4.0.1"
+	"version": "0.0.1"
 }
