@@ -1,4 +1,4 @@
-compatibility_date = "2023-11-08"
+compatibility_date = "2023-10-25"
 main = "build/worker/shim.mjs"
 name = "memoize-io"
 
