@@ -25,7 +25,9 @@ impl<'a> fmt::Display for Home<'a> {
                     {css::style()}
                 </head>
                 <body>
-                    <h1>{self.title()}</h1>
+                    <header />
+                    <main />
+                    <footer />
                 </body>
             </html>
         );
