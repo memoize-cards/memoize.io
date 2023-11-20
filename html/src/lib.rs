@@ -75,6 +75,10 @@ macro_rules! html {
         format!("</{}{}", stringify!($tag), html!($($look_ahead)*))
     };
 
+    ($attribute:ident $($look_ahead:tt)*) => {
+        format!("{} {}", stringify!($attribute), html!($($look_ahead)*))
+    };
+
     ($data_attribute:ident- $($look_ahead:tt)*) => {
         format!("{}-{}", stringify!($data_attribute), html!($($look_ahead)*))
     };
