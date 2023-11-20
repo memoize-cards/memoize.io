@@ -1,4 +1,5 @@
 mod handle;
+pub mod style;
 mod template;
 
 pub struct Home<'a> {
