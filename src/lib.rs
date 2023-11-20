@@ -1,4 +1,4 @@
-#![recursion_limit = "256"]
+#![recursion_limit = "2046"]
 
 use crate::handler::Handler;
 use worker::*;
