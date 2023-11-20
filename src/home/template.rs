@@ -25,9 +25,15 @@ impl<'a> fmt::Display for Home<'a> {
                     {css::style()}
                 </head>
                 <body>
-                    <header />
-                    <main />
-                    <footer />
+                    <header class="home__header">
+                        <img class="home__header-logo" src="//memoize.cards/memoize_64w.png" alt="Memoize" loading="eager" />
+                    </header>
+                    <main class="home__main">
+                        {"main"}
+                    </main>
+                    <footer>
+                        {"footer"}
+                    </footer>
                 </body>
             </html>
         );
