@@ -29,7 +29,17 @@ impl<'a> fmt::Display for Home<'a> {
                         <img class="home__header-logo" src="//memoize.cards/memoize.svg" alt="Memoize" loading="eager" />
                     </header>
                     <main class="home__main">
-                        {"main"}
+                        <div class="home__hero">
+                            <img class="home__hero-illustration" src="//memoize.cards/media.2e9bcf265f36ffda7cfcebbdbc8c3672.svg" alt="Memoize" loading="eager" />
+                            <hgroup class="home__hero-hgroup">
+                                <h1 class="home__hero-h1">{"Aprenda, Memorize, Domine!"}</h1>
+                                <h2 class="home__hero-h2">{"Um aplicativo avançado de flashcard projetado para otimizar o processo de aprendizado e memorização."}</h2>
+                            </hgroup>
+                        </div>
+                        <button class="home__hero-install">
+                            <span class="home__hero-install-icon material-symbols-outlined">install_mobile</span>
+                            <span class="home__hero-install-text">{"Instalar aplicativo"}</span>
+                        </button>
                     </main>
                     <footer class="home__footer">
                         <div class="home__footer-container">
@@ -38,7 +48,7 @@ impl<'a> fmt::Display for Home<'a> {
                             <span class="home__footer-benefit">{"Domine novas palavras, revise conceitos, prepare-se para exames e reforce seu aprendizado"}</span>
                             <span class="home__footer-benefit">{"Simplicidade, foco no essencial e aprendizado em qualquer lugar"}</span>
                             <label class="home__footer-language">
-                                <span class="material-symbols-outlined home__footer-language-icon">language</span>
+                                <span class="home__footer-language-icon material-symbols-outlined">language</span>
                                 <select class="home__footer-language-select">
                                     <option class="home__footer-language-option" value="en-US">EN</option>
                                     <option class="home__footer-language-option" value="es">ES</option>
