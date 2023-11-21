@@ -50,6 +50,15 @@ pub fn init() {
             max-width: 327px;
         }
 
+        .home__hero-h1 {
+            color: var(--color-master-dark);
+            display: flex;
+            font-family: var(--font-family-highlight);
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-bold);
+            line-height: var(--line-height-md);
+        }
+
         .home__footer {
             background-color: var(--color-pure-white);
             height: 74px;
