@@ -29,6 +29,27 @@ pub fn init() {
             width: 100%;
         }
 
+        .home__hero {
+            align-items: start;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing_inset-md);
+            height: calc(100svh - 180px);
+            justify-content: end;
+            width: calc(100% - 42px);
+        }
+
+        .home__hero-illustration {
+            aspect-ratio: 1 / 1;
+            margin: 0 auto;
+            max-height: 550px;
+            width: 100%;
+        }
+
+        .home__hero-hgroup {
+            max-width: 327px;
+        }
+
         .home__footer {
             background-color: var(--color-pure-white);
             height: 74px;
