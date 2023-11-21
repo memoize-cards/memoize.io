@@ -21,9 +21,9 @@ pub fn init() {
             display: flex;
             flex-direction: column;
             gap: var(--spacing_inset-lg);
+            height: calc(100svh - 148px);
             margin: 0 auto;
             max-width: 1440px;
-            min-height: calc(100svh - 148px);
             padding: var(--spacing_inset-xs);
             position: relative;
             width: 100%;
@@ -36,7 +36,7 @@ pub fn init() {
             gap: var(--spacing_inset-md);
             height: calc(100svh - 180px);
             justify-content: end;
-            width: calc(100% - 42px);
+            width: 100%;
         }
 
         .home__hero-illustration {
@@ -57,6 +57,15 @@ pub fn init() {
             font-size: var(--font-size-lg);
             font-weight: var(--font-weight-bold);
             line-height: var(--line-height-md);
+        }
+
+        .home__hero-h2 {
+            color: var(--color-master);
+            display: flex;
+            font-family: var(--font-family-base);
+            font-size: var(--font-size-xxxs);
+            font-weight: var(--font-weight-regular);
+            line-height: var(--line-height-lg);
         }
 
         .home__footer {
