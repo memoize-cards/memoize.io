@@ -18,6 +18,7 @@ pub fn init() {
         }
 
         .home__main {
+            align-items: start;
             display: flex;
             flex-direction: column;
             gap: var(--spacing_inset-lg);
@@ -36,7 +37,7 @@ pub fn init() {
             gap: var(--spacing_inset-md);
             height: calc(100svh - 180px);
             justify-content: end;
-            width: 100%;
+            width: calc(100% - 42px);
         }
 
         .home__hero-illustration {
@@ -47,6 +48,9 @@ pub fn init() {
         }
 
         .home__hero-hgroup {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing_inset-nano);
             max-width: 327px;
         }
 
@@ -65,7 +69,7 @@ pub fn init() {
             font-family: var(--font-family-base);
             font-size: var(--font-size-xxxs);
             font-weight: var(--font-weight-regular);
-            line-height: var(--line-height-lg);
+            line-height: var(--line-height-xl);
         }
 
         .home__hero-install {
@@ -83,6 +87,14 @@ pub fn init() {
         .home__hero-install-icon {
             color: var(--color-primary);
             font-size: 24px;
+        }
+
+        .home__hero-install-text {
+            color: var(--color-primary);
+            display: flex;
+            font-family: var(--font-family-base);
+            font-size: var(--font-size-xxs);
+            font-weight: var(--font-weight-medium);
         }
 
         .home__footer {
@@ -109,7 +121,7 @@ pub fn init() {
             font-family: var(--font-family-base);
             font-size: var(--font-size-xxxs);
             font-weight: var(--font-weight-regular);
-            line-height: var(--line-height-lg);
+            line-height: var(--line-height-xl);
         }
 
         @media (width <= 768px) {
