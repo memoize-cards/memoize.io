@@ -32,8 +32,8 @@ impl<'a> fmt::Display for Home<'a> {
                         <div class="home__hero">
                             <img class="home__hero-illustration" src="//memoize.cards/media.2e9bcf265f36ffda7cfcebbdbc8c3672.svg" alt="Memoize" loading="eager" />
                             <hgroup class="home__hero-hgroup">
-                                <h1 class="home__hero-h1">{"Aprenda, Memorize, Domine!"}</h1>
-                                <h2 class="home__hero-h2">{"Um aplicativo avançado de flashcard projetado para otimizar o processo de aprendizado e memorização."}</h2>
+                                <h1 class="home__hero-title">{"Aprenda, Memorize, Domine!"}</h1>
+                                <h2 class="home__hero-description">{"Um aplicativo avançado de flashcard projetado para otimizar o processo de aprendizado e memorização."}</h2>
                             </hgroup>
                         </div>
                         <button class="home__hero-install">

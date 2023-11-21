@@ -50,22 +50,39 @@ pub fn init() {
             max-width: 327px;
         }
 
-        .home__hero-h1 {
+        .home__hero-title {
             color: var(--color-master-dark);
             display: flex;
             font-family: var(--font-family-highlight);
             font-size: var(--font-size-lg);
             font-weight: var(--font-weight-bold);
-            line-height: var(--line-height-md);
+            line-height: var(--line-height-sm);
         }
 
-        .home__hero-h2 {
+        .home__hero-description {
             color: var(--color-master);
             display: flex;
             font-family: var(--font-family-base);
             font-size: var(--font-size-xxxs);
             font-weight: var(--font-weight-regular);
             line-height: var(--line-height-lg);
+        }
+
+        .home__hero-install {
+            align-items: center;
+            background-color: transparent;
+            border: var(--border-width-hairline) solid var(--color-primary);
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            display: flex;
+            gap: var(--spacing_inset-nano);
+            padding: var(--spacing_inset-nano);
+            padding-right: var(--spacing_inset-xs);
+        }
+
+        .home__hero-install-icon {
+            color: var(--color-primary);
+            font-size: 24px;
         }
 
         .home__footer {
