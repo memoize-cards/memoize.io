@@ -127,7 +127,7 @@ pub fn style() -> String {
 
 #[cfg(test)]
 mod tests {
-    use crate::css::*;
+    use super::*;
 
     #[test]
     fn text_content() {
