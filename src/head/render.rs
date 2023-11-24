@@ -1,43 +1,30 @@
-//! # Implementação de fmt::Display para a Struct Head
+//! # Render Module
 //!
-//! Este módulo contém a implementação do trait `fmt::Display` para a struct `Head`, permitindo que ela seja
-//! formatada como uma string para ser usada na geração de documentos HTML.
-//!
-//! ## Implementação `fmt::Display` para `Head`
-//!
-//! A implementação adiciona os elementos essenciais à seção `<head>` de um documento HTML, incluindo metadados,
-//! título, ícones e links para folhas de estilo externas.
-//!
-//! ## Exemplo de Uso
-//!
-//! ```rust
-//! use crate::Head;
-//!
-//! let head = Head {
-//!     description: "Descrição do Documento",
-//!     title: "Título do Documento",
-//! };
-//!
-//! println!("{}", head);
-//! ```
-//!
-//! O exemplo acima demonstra como a struct `Head` pode ser formatada como uma string HTML usando a implementação
-//! de `fmt::Display`.
-//!
-//! ## Estilo CSS
-//!
-//! O estilo CSS utilizado é importado da função `style()` e adicionado à seção `<head>` do documento gerado.
-//!
-//! ## Observação
-//!
-//! Certifique-se de que as URLs utilizadas nos links estejam acessíveis e atualizadas conforme necessário.
+//! The `render` module contains functionality related to rendering.
+
 use super::Head;
 use crate::css::*;
 use crate::html;
 use std::fmt;
 
 impl<'a> fmt::Display for Head<'a> {
+    /// Implements the `fmt::Display` trait for the `Head` struct, allowing it to be formatted as HTML.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use your_crate_name::Head;
+    ///
+    /// let head = Head {
+    ///     description: "Sample Description",
+    ///     title: "Sample Title",
+    /// };
+    ///
+    /// let formatted_head = format!("{}", head);
+    /// // Assert the formatted head contains expected HTML structure.
+    /// ```
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        // HTML template using the `html!` macro.
         let template: String = html!(
             <head>
                 <meta charset="UTF-8">
@@ -54,7 +41,7 @@ impl<'a> fmt::Display for Head<'a> {
                 <link rel="preconnect" href="//cdnjs.cloudflare.com" crossorigin />
                 <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0" />
                 <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" />
-                {style()}
+                {style()} // Include the style from the `style()` function.
             </head>
         );
 
