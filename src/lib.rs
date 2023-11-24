@@ -2,9 +2,11 @@
 
 use crate::handler::Handler;
 use worker::*;
+mod css;
 mod handler;
 mod head;
 mod home;
+mod html;
 mod reset;
 mod tokens;
 

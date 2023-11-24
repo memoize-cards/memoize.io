@@ -13,15 +13,7 @@ wasm-opt = false
 [lib]
 crate-type = ["cdylib"]
 
-[workspace]
-members = [
-  "css",
-  "html"
-]
-
 [dependencies]
-css = { path = "./css" }
-html = { path = "./html" }
 worker = "0.0.15"
 
 [profile.release]

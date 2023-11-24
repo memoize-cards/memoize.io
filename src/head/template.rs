@@ -1,6 +1,6 @@
 use super::Head;
-use css::style;
-use html::html;
+use crate::css::*;
+use crate::html;
 use std::fmt;
 
 impl<'a> fmt::Display for Head<'a> {

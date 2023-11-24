@@ -1,4 +1,4 @@
-use css::*;
+use crate::css::*;
 
 pub fn init() {
     css(r#"

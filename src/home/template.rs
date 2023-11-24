@@ -1,5 +1,5 @@
 use super::Home;
-use html::*;
+use crate::html;
 use std::fmt;
 
 impl<'a> fmt::Display for Home<'a> {

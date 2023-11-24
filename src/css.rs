@@ -7,7 +7,7 @@
 //! # Exemplo
 //!
 //! ```
-//! use css::css;
+//! use crate::css::css;
 //!
 //! let style = css(r#"
 //!     * {
@@ -47,7 +47,7 @@
 /// # Exemplo
 ///
 /// ```rust
-/// use css::css;
+/// use crate::css::css;
 ///
 /// let style1 = css(r#"
 ///     * {
@@ -74,7 +74,7 @@ static mut CONTENT: String = String::new();
 /// # Exemplo
 ///
 /// ```
-/// use css::css;
+/// use crate::css::css;
 ///
 /// let style = css(r#"
 ///     * {
@@ -109,7 +109,7 @@ pub fn css(content: &str) -> String {
 /// # Exemplo
 ///
 /// ```
-/// use css::style;
+/// use crate::css::style;
 ///
 /// let style_tag = style();
 ///
@@ -122,13 +122,12 @@ pub fn css(content: &str) -> String {
 ///
 /// Uma string contendo a tag de estilo HTML pronta para ser incorporada em uma página da web.
 pub fn style() -> String {
-    unsafe { format!("<style>{CONTENT}</style>") }
+    unsafe { format!("<style>{}</style>", CONTENT) }
 }
 
 #[cfg(test)]
 mod tests {
-    use crate::css;
-    use crate::style;
+    use crate::css::*;
 
     #[test]
     fn text_content() {
@@ -142,6 +141,11 @@ mod tests {
 
     #[test]
     fn html_style_element() {
+        css(r#"
+                * {
+                all: unset;
+            }
+        "#);
         let tag: String = style();
         assert_eq!(tag, "<style>* { all: unset; }</style>")
     }
