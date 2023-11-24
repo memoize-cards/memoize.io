@@ -1,12 +1,37 @@
+//! # Home Module
+//!
+//! The `home` module contains functionality related to the home route.
+
 use super::Home;
 use crate::html;
 use std::fmt;
 
 impl<'a> fmt::Display for Home<'a> {
+    /// Implements the `fmt::Display` trait for the `Home` struct, defining how the struct should be formatted as a string.
+    ///
+    /// # Arguments
+    ///
+    /// - `f`: The formatter.
+    ///
+    /// # Returns
+    ///
+    /// A `fmt::Result` indicating success or failure of the formatting operation.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use crate::Home;
+    /// use std::fmt::Write;
+    ///
+    /// let home = Home::new(/* provide a Head instance */);
+    /// let formatted_home = format!("{}", home);
+    /// assert_eq!(formatted_home, /* expected formatted output */);
+    /// ```
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        // Generate HTML content using the `html!` macro.
         let html_content: String = html!(
             <html lang="pt-BR" translate="no">
-                {self.head()}
+                {self.get_head()}
                 <body>
                     <header class="home__header">
                         <img class="home__header-logo" src="//memoize.cards/memoize.svg" alt="Memoize" loading="eager" />
@@ -43,6 +68,8 @@ impl<'a> fmt::Display for Home<'a> {
                 </body>
             </html>
         );
+
+        // Write the formatted HTML content to the formatter.
         write!(f, "{}", html_content)
     }
 }

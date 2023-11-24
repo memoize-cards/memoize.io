@@ -1,7 +1,14 @@
+//! # Style Module
+//!
+//! The `style` module defines the CSS styles for the home page.
+
 use crate::css::*;
 
+/// Initializes the CSS styles for the home page.
 pub fn init() {
     css(r#"
+        /* Styles for the home page */
+
         .home__header {
             display: flex;
             height: 74px;

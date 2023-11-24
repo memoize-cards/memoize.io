@@ -21,5 +21,5 @@ async fn main(req: Request, env: Env, _ctx: Context) -> Result<Response> {
 fn start() {
     reset::init();
     tokens::init();
-    home::style::init();
+    home::styled::init();
 }
