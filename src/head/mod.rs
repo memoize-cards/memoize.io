@@ -1,47 +1,45 @@
-//! # Struct Head para Geração de Documentos HTML
+//! # Render Module
 //!
-//! O módulo `template` contém a definição da estrutura `Head` em Rust, que é utilizada para representar a seção
-//! `<head>` de um documento HTML, incluindo descrição e título.
-//!
-//! ## Struct `Head`
-//!
-//! A struct `Head` possui os seguintes campos:
-//!
-//! - `description`: Uma referência a uma string (`&str`) que armazena a descrição do documento HTML.
-//! - `title`: Uma referência a uma string (`&str`) que armazena o título do documento HTML.
-//!
-//! ## Métodos
-//!
-//! A implementação da struct `Head` inclui os seguintes métodos:
-//!
-//! - `get_description(&self) -> &'a str`: Retorna a descrição do documento.
-//! - `get_title(&self) -> &'a str`: Retorna o título do documento.
-//!
-//! ## Exemplo de Uso
-//!
-//! ```rust
-//! use crate::Head;
-//!
-//! let head = Head {
-//!     description: "Descrição do Documento",
-//!     title: "Título do Documento",
-//! };
-//!
-//! println!("Descrição: {}", head.get_description());
-//! println!("Título: {}", head.get_title());
-//! ```
+//! The `render` module contains functionality related to rendering.
 mod render;
 
+/// Represents the head section of a document.
+///
+/// # Examples
+///
+/// ```
+/// use crate::Head;
+///
+/// let head = Head {
+///     description: "Sample Description",
+///     title: "Sample Title",
+/// };
+///
+/// assert_eq!(head.get_description(), "Sample Description");
+/// assert_eq!(head.get_title(), "Sample Title");
+/// ```
 pub struct Head<'a> {
+    /// The description of the document head.
     pub description: &'a str,
+    /// The title of the document head.
     pub title: &'a str,
 }
 
 impl<'a> Head<'a> {
+    /// Gets the description of the document head.
+    ///
+    /// # Returns
+    ///
+    /// The description of the document head.
     pub fn get_description(&self) -> &'a str {
         self.description
     }
 
+    /// Gets the title of the document head.
+    ///
+    /// # Returns
+    ///
+    /// The title of the document head.
     pub fn get_title(&self) -> &'a str {
         self.title
     }
