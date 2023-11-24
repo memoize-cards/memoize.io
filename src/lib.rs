@@ -3,6 +3,7 @@
 use crate::handler::Handler;
 use worker::*;
 mod handler;
+mod head;
 mod home;
 mod reset;
 mod tokens;
