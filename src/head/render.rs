@@ -1,3 +1,36 @@
+//! # Implementação de fmt::Display para a Struct Head
+//!
+//! Este módulo contém a implementação do trait `fmt::Display` para a struct `Head`, permitindo que ela seja
+//! formatada como uma string para ser usada na geração de documentos HTML.
+//!
+//! ## Implementação `fmt::Display` para `Head`
+//!
+//! A implementação adiciona os elementos essenciais à seção `<head>` de um documento HTML, incluindo metadados,
+//! título, ícones e links para folhas de estilo externas.
+//!
+//! ## Exemplo de Uso
+//!
+//! ```rust
+//! use crate::Head;
+//!
+//! let head = Head {
+//!     description: "Descrição do Documento",
+//!     title: "Título do Documento",
+//! };
+//!
+//! println!("{}", head);
+//! ```
+//!
+//! O exemplo acima demonstra como a struct `Head` pode ser formatada como uma string HTML usando a implementação
+//! de `fmt::Display`.
+//!
+//! ## Estilo CSS
+//!
+//! O estilo CSS utilizado é importado da função `style()` e adicionado à seção `<head>` do documento gerado.
+//!
+//! ## Observação
+//!
+//! Certifique-se de que as URLs utilizadas nos links estejam acessíveis e atualizadas conforme necessário.
 use super::Head;
 use crate::css::*;
 use crate::html;
