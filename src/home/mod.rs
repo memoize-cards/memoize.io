@@ -12,7 +12,7 @@ pub mod styled;
 /// # Examples
 ///
 /// ```
-/// use your_crate_name::Home;
+/// use crate::Home;
 /// use crate::head::Head;
 ///
 /// let head = Head {

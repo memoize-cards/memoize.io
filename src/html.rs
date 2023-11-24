@@ -1,40 +1,49 @@
-//! # HTML Macro
+//! Uma macro para geração eficiente de código HTML em Rust.
 //!
-//! The `html!` macro provides a convenient way to generate HTML content using a syntax similar to HTML.
+//! A macro `html!` simplifica a criação de código HTML dentro do Rust de forma concisa.
+//! Ela permite a construção de tags HTML e atributos de forma programática.
 //!
-//! # Examples
+//! # Exemplo
 //!
-//! ```rust
-//! // Open a div tag
-//! let document: String = html!(<div);
-//! // Output: "<div"
-//!
-//! // Create a custom HTML tag
-//! let document: String = html!(<memoize-footer>);
-//! // Output: "<memoize-footer>"
-//!
-//! // Add attributes to an HTML tag
-//! let name: &str = "deMGoncalves";
-//! let document: String = html!(alt={name} src="./deMGoncalves.png");
-//! // Output: r#" alt="deMGoncalves" src="./deMGoncalves.png""#
-//!
-//! // Create a self-closing tag
-//! let document: String = html!(/>);
-//! // Output: "/>"
-//!
-//! // Create a closing tag
-//! let document: String = html!(>);
-//! // Output: ">"
-//!
-//! // Include content in an HTML tag
-//! let name: &str = "deMGoncalves";
-//! let document: String = html!({ format!("I'm {name}") });
-//! // Output: "I'm deMGoncalves"
-//!
-//! // Close a tag
-//! let document: String = html!(</div);
-//! // Output: "</div"
 //! ```
+//! use crate::html;
+//!
+//! let page = html!(
+//!     <html>
+//!         <head>
+//!             <title>{"Minha Página HTML"}</title>
+//!         </head>
+//!         <body>
+//!             <h1>{"Bem-vindo ao Rust HTML Macro!"}</h1>
+//!             <p>{"Este é um exemplo de geração de HTML usando a macro `html!`."}</p>
+//!         </body>
+//!     </html>
+//! );
+//! println!("{}", page);
+//! ```
+//!
+//! Este exemplo cria uma estrutura HTML simples usando a macro `html!` e a imprime.
+//!
+//! # Formato da Macro
+//!
+//! A macro `html!` segue um formato que permite a construção de elementos HTML de maneira concisa:
+//!
+//! - `<$tag $($look_ahead)*>`: Abre uma tag HTML com um nome de tag, seguido por atributos.
+//! - `$attribute=$value $($look_ahead)*`: Define um atributo com uma chave e um valor.
+//! - `$data-$attribute- $($look_ahead)*`: Define um data atributo personalizado de dados.
+//! - `/> $($look_ahead)*`: Fecha uma tag autossuficiente.
+//! - `> $($look_ahead)*`: Fecha uma tag que pode conter conteúdo.
+//! - `{$content} $($look_ahead)*`: Insere um valor diretamente no HTML.
+//! - `</$tag $($look_ahead)*>`: Fecha uma tag HTML.
+//! - `-$custom_element $($look_ahead)*`: Define um elemento HTML personalizado.
+//! - `()` : Finaliza a construção do HTML.
+//!
+//! # Notas
+//!
+//! Esta macro é uma ferramenta poderosa para a geração eficiente de código HTML, mas deve ser usada com cuidado para evitar a injeção de código malicioso.
+//!
+//! Lembre-se de que o Rust é uma linguagem de programação com forte segurança de tipo, e a macro `html!` não faz verificações de segurança contra injeção de código, por isso é importante validar e sanitizar quaisquer dados inseridos no HTML gerado.
+//!
 
 #[macro_export]
 macro_rules! html {
