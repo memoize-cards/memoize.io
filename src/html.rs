@@ -6,7 +6,7 @@
 //! # Exemplo
 //!
 //! ```
-//! use html::html;
+//! use crate::html;
 //!
 //! let page = html!(
 //!     <html>
