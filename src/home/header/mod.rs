@@ -1,10 +1,11 @@
+use crate::assets;
 use crate::loading::Loading;
 mod render;
 pub mod styled;
 
 pub struct Header<'a> {
     alt: &'a str,
-    src: &'a str,
+    path: &'a str,
     loading: Loading,
 }
 
@@ -13,8 +14,8 @@ impl<'a> Header<'a> {
         self.alt
     }
 
-    pub fn get_src(&self) -> &'a str {
-        self.src
+    pub fn get_src(&self) -> String {
+        assets::url_for(self.path)
     }
 
     pub fn get_loading(&self) -> &str {
@@ -24,7 +25,7 @@ impl<'a> Header<'a> {
     pub fn new() -> Header<'a> {
         Header {
             alt: "Memoize",
-            src: "//memoize.cards/memoize.svg",
+            path: "memoize.svg",
             loading: Loading::Eager,
         }
     }
