@@ -12,10 +12,10 @@ impl<'a> fmt::Display for Head<'a> {
                 <meta name="theme-color" content="#fafafa" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <title>{self.get_title()}</title>
-                <link rel="icon" href="//memoize.cards/favicon.ico" sizes="any" />
-                <link rel="icon" href="//memoize.cards/memoize.svg" type="image/svg+xml" />
-                <link rel="apple-touch-icon" href="//memoize.cards/memoize_180w.png" />
-                <link rel="manifest" href="//memoize.cards/manifest.json" />
+                <link rel="icon" href="//assets.memoize.cards/favicon.ico" sizes="any" />
+                <link rel="icon" href="//assets.memoize.cards/memoize.svg" type="image/svg+xml" />
+                <link rel="apple-touch-icon" href="//assets.memoize.cards/memoize_180w.png" />
+                <link rel="manifest" href="//assets.memoize.cards/manifest.json" />
                 <link rel="preconnect" href="//fonts.gstatic.com" crossorigin />
                 <link rel="preconnect" href="//fonts.googleapis.com" crossorigin />
                 <link rel="preconnect" href="//cdnjs.cloudflare.com" crossorigin />
