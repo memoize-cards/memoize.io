@@ -1,23 +1,8 @@
-//! This module provides functions for initializing CSS variables with commonly used design values.
+use crate::css;
 
-use crate::css::*;
-
-/// Initializes the default CSS variables for design values.
-///
-/// This function sets CSS variables for border radii, border widths, colors,
-/// font families, font sizes, font weights, line heights, opacities, shadows,
-/// and spacing values.
-///
-/// # Example
-///
-/// ```rust
-/// use crate::tokens::init;
-///
-/// // Initialize the design CSS variables
-/// init();
-/// ```
 pub fn init() {
-    css(r#"
+    css::push(
+        r#"
         :root {
             --border-radius-none: 0;
             --border-radius-sm: 8px;
@@ -135,5 +120,6 @@ pub fn init() {
             --spacing_inset-huge: 48px;
             --spacing_inset-giant: 56px;
         }
-    "#);
+    "#,
+    );
 }
