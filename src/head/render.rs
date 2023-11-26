@@ -9,7 +9,6 @@ impl<'a> fmt::Display for Head<'a> {
             <head>
                 <meta charset="UTF-8">
                 <meta name="description" content={self.get_description()} />
-                <meta http-equiv="Content-Security-Policy" content="default-src ’self’; img-src *" />
                 <meta name="theme-color" content="#fafafa" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <title>{self.get_title()}</title>
