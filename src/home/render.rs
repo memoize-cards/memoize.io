@@ -9,19 +9,7 @@ impl<'a> fmt::Display for Home<'a> {
                 {self.get_head()}
                 <body>
                     {self.get_header()}
-                    <main class="home__main">
-                        <div class="home__hero">
-                            <img class="home__hero-illustration" src="//memoize.cards/media.2e9bcf265f36ffda7cfcebbdbc8c3672.svg" alt="Memoize" loading="eager" />
-                            <hgroup class="home__hero-hgroup">
-                                <h1 class="home__hero-title">{"Aprenda, Memorize, Domine!"}</h1>
-                                <h2 class="home__hero-description">{"Um aplicativo avançado de flashcard projetado para otimizar o processo de aprendizado e memorização."}</h2>
-                            </hgroup>
-                        </div>
-                        <button class="home__hero-install">
-                            <span class="home__hero-install-icon material-symbols-outlined">install_mobile</span>
-                            <span class="home__hero-install-text">{"Instalar aplicativo"}</span>
-                        </button>
-                    </main>
+                    {self.get_main()}
                     <footer class="home__footer">
                         <div class="home__footer-container">
                             <span class="home__footer-benefit">{"Organize informações facilmente usando cartões de estudo"}</span>

@@ -1,105 +1,12 @@
 use super::header;
+use super::main;
 use crate::css;
 
 pub fn init() {
     header::styled::init();
+    main::styled::init();
     css::push(
         r#"
-        .home__header {
-            display: flex;
-            height: 74px;
-            justify-content: space-between;
-            margin: 0 auto;
-            max-width: 1440px;
-            padding: var(--spacing_inset-xs);
-            width: 100%;
-        }
-
-        .home__header-logo {
-            aspect-ratio: 1 / 1;
-            width: 42px;
-        }
-
-        .home__main {
-            align-items: start;
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing_inset-lg);
-            height: calc(100svh - 148px);
-            margin: 0 auto;
-            max-width: 1440px;
-            padding: var(--spacing_inset-xs);
-            position: relative;
-            width: 100%;
-        }
-
-        .home__hero {
-            align-items: start;
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing_inset-md);
-            height: calc(100svh - 180px);
-            justify-content: end;
-            width: calc(100% - 42px);
-        }
-
-        .home__hero-illustration {
-            aspect-ratio: 1 / 1;
-            margin: 0 auto;
-            max-height: 550px;
-            width: 100%;
-        }
-
-        .home__hero-hgroup {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing_inset-nano);
-            max-width: 327px;
-        }
-
-        .home__hero-title {
-            color: var(--color-master-dark);
-            display: flex;
-            font-family: var(--font-family-highlight);
-            font-size: var(--font-size-lg);
-            font-weight: var(--font-weight-bold);
-            line-height: var(--line-height-sm);
-        }
-
-        .home__hero-description {
-            color: var(--color-master);
-            display: flex;
-            font-family: var(--font-family-base);
-            font-size: var(--font-size-xxxs);
-            font-weight: var(--font-weight-regular);
-            line-height: var(--line-height-xl);
-        }
-
-        .home__hero-install {
-            align-items: center;
-            background-color: transparent;
-            border: var(--border-width-hairline) solid var(--color-primary);
-            border-radius: var(--border-radius-sm);
-            cursor: pointer;
-            display: flex;
-            gap: var(--spacing_inset-nano);
-            padding: var(--spacing_inset-nano);
-            padding-right: var(--spacing_inset-xs);
-        }
-
-        .home__hero-install-icon {
-            color: var(--color-primary);
-            font-size: 24px;
-        }
-
-        .home__hero-install-text {
-            color: var(--color-primary);
-            display: flex;
-            font-family: var(--font-family-base);
-            font-size: var(--font-size-xxs);
-            font-weight: var(--font-weight-medium);
-        }
-
         .home__footer {
             background-color: var(--color-pure-white);
             height: 74px;

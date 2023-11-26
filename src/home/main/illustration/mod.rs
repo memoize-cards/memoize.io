@@ -2,13 +2,13 @@ use crate::loading::Loading;
 mod render;
 pub mod styled;
 
-pub struct Header<'a> {
+pub struct Illustration<'a> {
     alt: &'a str,
     src: &'a str,
     loading: Loading,
 }
 
-impl<'a> Header<'a> {
+impl<'a> Illustration<'a> {
     pub fn get_alt(&self) -> &'a str {
         self.alt
     }
@@ -21,10 +21,10 @@ impl<'a> Header<'a> {
         self.loading.as_str()
     }
 
-    pub fn new() -> Header<'a> {
-        Header {
+    pub fn new() -> Illustration<'a> {
+        Illustration {
             alt: "Memoize",
-            src: "//memoize.cards/memoize.svg",
+            src: "//memoize.cards/media.2e9bcf265f36ffda7cfcebbdbc8c3672.svg",
             loading: Loading::Eager,
         }
     }
@@ -36,19 +36,22 @@ mod tests {
 
     #[test]
     fn get_alt() {
-        let header = Header::new();
+        let header = Illustration::new();
         assert_eq!(header.get_alt(), "Memoize");
     }
 
     #[test]
     fn get_src() {
-        let header = Header::new();
-        assert_eq!(header.get_src(), "//memoize.cards/memoize.svg");
+        let header = Illustration::new();
+        assert_eq!(
+            header.get_src(),
+            "//memoize.cards/media.2e9bcf265f36ffda7cfcebbdbc8c3672.svg"
+        );
     }
 
     #[test]
     fn get_loading() {
-        let header = Header::new();
+        let header = Illustration::new();
         assert_eq!(header.get_loading(), "eager");
     }
 }
