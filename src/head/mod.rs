@@ -20,7 +20,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_get_description() {
+    fn get_description() {
         let head = Head {
             description: "Teste de Descrição",
             title: "Teste de Título",
@@ -29,7 +29,7 @@ mod tests {
     }
 
     #[test]
-    fn test_get_title() {
+    fn get_title() {
         let head = Head {
             description: "Teste de Descrição",
             title: "Teste de Título",
