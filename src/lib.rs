@@ -2,6 +2,7 @@
 
 use crate::handler::Handler;
 use worker::*;
+mod assets;
 mod css;
 mod handler;
 mod head;
