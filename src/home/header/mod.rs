@@ -44,7 +44,7 @@ mod tests {
     #[test]
     fn get_src() {
         let header = Header::new();
-        assert_eq!(header.get_src(), "//memoize.cards/memoize.svg");
+        assert_eq!(header.get_src(), "//assets.memoize.cards/memoize.svg");
     }
 
     #[test]

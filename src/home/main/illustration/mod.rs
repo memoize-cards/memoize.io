@@ -46,7 +46,7 @@ mod tests {
         let header = Illustration::new();
         assert_eq!(
             header.get_src(),
-            "//memoize.cards/media.2e9bcf265f36ffda7cfcebbdbc8c3672.svg"
+            "//assets.memoize.cards/illustration/home.svg"
         );
     }
 
