@@ -8,9 +8,7 @@ impl<'a> fmt::Display for Home<'a> {
             <html lang="pt-BR" translate="no">
                 {self.get_head()}
                 <body>
-                    <header class="home__header">
-                        <img class="home__header-logo" src="//memoize.cards/memoize.svg" alt="Memoize" loading="eager" />
-                    </header>
+                    {self.get_header()}
                     <main class="home__main">
                         <div class="home__hero">
                             <img class="home__hero-illustration" src="//memoize.cards/media.2e9bcf265f36ffda7cfcebbdbc8c3672.svg" alt="Memoize" loading="eager" />

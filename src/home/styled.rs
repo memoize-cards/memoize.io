@@ -1,6 +1,8 @@
+use super::header;
 use crate::css;
 
 pub fn init() {
+    header::styled::init();
     css::push(
         r#"
         .home__header {
