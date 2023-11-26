@@ -1,5 +1,5 @@
 use super::Head;
-use crate::css::*;
+use crate::css;
 use crate::html;
 use std::fmt;
 
@@ -21,7 +21,7 @@ impl<'a> fmt::Display for Head<'a> {
                 <link rel="preconnect" href="//cdnjs.cloudflare.com" crossorigin />
                 <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0" />
                 <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" />
-                {style()}
+                <style>{css::get_content()}</style>
             </head>
         );
 
