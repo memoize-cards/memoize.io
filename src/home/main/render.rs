@@ -18,6 +18,9 @@ impl<'a> fmt::Display for Main<'a> {
                     <span class="home__main-install-text">{"Instalar aplicativo"}</span>
                 </button>
                 <div class="home__main-side">
+                    {self.get_privacy_policy()}
+                    {self.get_terms_of_use()}
+                    {self.get_copy_write()}
                     {self.get_linkedin()}
                     {self.get_github()}
                 </div>

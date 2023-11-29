@@ -1,12 +1,18 @@
+use super::copy_write;
 use super::github;
 use super::illustration;
 use super::linkedin;
+use super::privacy_policy;
+use super::terms_of_use;
 use crate::css;
 
 pub fn init() {
+    copy_write::styled::init();
     github::styled::init();
     illustration::styled::init();
     linkedin::styled::init();
+    privacy_policy::styled::init();
+    terms_of_use::styled::init();
     css::push(
         r#"
         .home__main {
