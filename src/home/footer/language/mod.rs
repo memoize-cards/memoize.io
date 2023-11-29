@@ -1,10 +1,19 @@
+use crate::assets;
 mod render;
 pub mod styled;
 
-pub struct Language {}
+pub struct Language<'a> {
+    url: &'a str,
+}
 
-impl Language {
-    pub fn new() -> Language {
-        Language {}
+impl<'a> Language<'a> {
+    pub fn get_url(&self) -> String {
+        assets::url_for(self.url)
+    }
+
+    pub fn new() -> Language<'a> {
+        Language {
+            url: "icone/language.svg",
+        }
     }
 }

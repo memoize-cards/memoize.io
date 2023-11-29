@@ -8,7 +8,7 @@ pub struct Footer<'a> {
     how_it_work: &'a str,
     try_it_out: &'a str,
     usage: &'a str,
-    language: Language,
+    language: Language<'a>,
 }
 
 impl<'a> Footer<'a> {

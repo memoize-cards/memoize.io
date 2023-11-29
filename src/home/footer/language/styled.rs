@@ -18,7 +18,8 @@ pub fn init() {
 
         .home__footer-language-icon {
             color: var(--color-primary);
-            font-size: 24px;
+            height: 24px;
+            width: 24px;
         }
 
         .home__footer-language-select {

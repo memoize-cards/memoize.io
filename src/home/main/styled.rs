@@ -77,7 +77,8 @@ pub fn init() {
 
         .home__main-install-icon {
             color: var(--color-primary);
-            font-size: 24px;
+            height: 24px;
+            width: 24px;
         }
 
         .home__main-install-text {
