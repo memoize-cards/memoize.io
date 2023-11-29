@@ -1,8 +1,12 @@
+use super::github;
 use super::illustration;
+use super::linkedin;
 use crate::css;
 
 pub fn init() {
+    github::styled::init();
     illustration::styled::init();
+    linkedin::styled::init();
     css::push(
         r#"
         .home__main {
@@ -76,6 +80,18 @@ pub fn init() {
             font-family: var(--font-family-base);
             font-size: var(--font-size-xxs);
             font-weight: var(--font-weight-medium);
+        }
+
+        .home__main-side {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing_inset-xs);
+            height: calc(100svh - 180px);
+            justify-content: end;
+            position: absolute;
+            right: 16px;
+            top: 16px;
+            width: 42px;
         }
     "#,
     );

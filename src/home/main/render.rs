@@ -17,6 +17,10 @@ impl<'a> fmt::Display for Main<'a> {
                     <span class="home__main-install-icon material-symbols-outlined">install_mobile</span>
                     <span class="home__main-install-text">{"Instalar aplicativo"}</span>
                 </button>
+                <div class="home__main-side">
+                    {self.get_linkedin()}
+                    {self.get_github()}
+                </div>
             </main>
         );
 
