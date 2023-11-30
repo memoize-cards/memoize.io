@@ -60,8 +60,8 @@ pub fn init() {
             --color-pure-white: #fff;
             --color-pure-black: #000;
 
-            --font-family-highlight: 'Roboto Condensed', sans-serif;
-            --font-family-base: 'Roboto', sans-serif;
+            --font-family-highlight: 'Helvetica', sans-serif;
+            --font-family-base: 'Helvetica', sans-serif;
 
             --font-size-xxxs: 12px;
             --font-size-xxs: 14px;

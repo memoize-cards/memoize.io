@@ -17,10 +17,6 @@ impl<'a> fmt::Display for Head<'a> {
                 <link rel="apple-touch-icon" href="//assets.memoize.cards/memoize_180w.png" />
                 <link rel="manifest" href="//assets.memoize.cards/manifest.json" />
                 <link rel="preconnect" href="//assets.memoize.cards" crossorigin />
-                <link rel="preconnect" href="//fonts.gstatic.com" crossorigin />
-                <link rel="preconnect" href="//fonts.googleapis.com" crossorigin />
-                <link rel="preconnect" href="//cdnjs.cloudflare.com" crossorigin />
-                <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" />
                 <style>{css::get_content()}</style>
             </head>
         );
