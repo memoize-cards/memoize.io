@@ -5,10 +5,6 @@ pub fn init() {
         r#"
         .home__main-side-github {
             align-items: center;
-            background: url('//assets.memoize.cards/social-media/github.svg');
-            background-color: transparent;
-            background-position: center;
-            background-repeat: no-repeat;
             border: none;
             cursor: pointer;
             display: flex;
