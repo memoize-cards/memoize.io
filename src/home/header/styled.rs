@@ -13,7 +13,7 @@ pub fn init() {
             width: 100%;
         }
 
-        .home__header-logo {
+        .home__header svg {
             aspect-ratio: 1 / 1;
             width: 42px;
         }

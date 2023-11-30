@@ -9,7 +9,7 @@ mod render;
 pub mod styled;
 
 pub struct Home<'a> {
-    header: Header<'a>,
+    header: Header,
     main: Main<'a>,
     footer: Footer<'a>,
 }
@@ -19,7 +19,7 @@ impl<'a> Home<'a> {
         &self.footer
     }
 
-    pub fn get_header(&self) -> &Header<'a> {
+    pub fn get_header(&self) -> &Header {
         &self.header
     }
 
