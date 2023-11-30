@@ -18,7 +18,7 @@ pub struct Main<'a> {
     title: &'a str,
     copy_write: CopyWrite<'a>,
     github: Github<'a>,
-    illustration: Illustration<'a>,
+    illustration: Illustration,
     linkedin: LinkedIn<'a>,
     privacy_policy: PrivacyPolicy<'a>,
     terms_of_use: TermsOfUse<'a>,
@@ -37,7 +37,7 @@ impl<'a> Main<'a> {
         &self.github
     }
 
-    pub fn get_illustration(&self) -> &Illustration<'a> {
+    pub fn get_illustration(&self) -> &Illustration {
         &self.illustration
     }
 
